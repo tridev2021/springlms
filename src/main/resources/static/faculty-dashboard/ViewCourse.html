@@ -224,7 +224,7 @@ function logout(){
 				$.ajax({
 					type: "POST",
 					contentType: "application/json; charset=utf-8",
-					url: "http://localhost:8085/api/course/insert",
+					url: "http://localhost:8080/api/course/insert",
 					data: JSON.stringify({'id': id.html(), 'courseName': name.children("input[type=text]").val(), 'duration': duration.children("input[type=text]").val(), 'price': price.children("input[type=text]").val()}),
 					cache: false,
 					success: function () {
@@ -242,7 +242,22 @@ function logout(){
 			});
 
 		});
-
+		$.ajax({
+			type: "GET",
+			contentType: "application/json; charset=utf-8",
+			url: "http://localhost:8080/api/course/"+sessionStorage.getItem('email'),
+			cache: false,
+			success: function(result) {
+				document.getElementById('id').value=result[0].fid
+				document.getElementById('name').value=result[0].facultyName
+				document.getElementById('email').value=result[0].email
+				document.getElementById('mobile').value=result[0].mobile
+				document.getElementById('address').value=result[0].address
+			},
+			error: function(err) {
+					window.alert("Details are not saved !");
+			}
+		});
 		</script>
 </body>
 
