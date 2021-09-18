@@ -25,7 +25,7 @@
 
 
 					<div class="input-field">
-						<input placeholder="Student Name" id="student_name"
+						<input placeholder="Student Name" id="name"
 							name="student_name" type="text" class="validate">
 					</div>
 					<div class="input-field">
@@ -37,12 +37,16 @@
 							type="password" class="validate">
 					</div>
 					<div class="input-field">
-						<input placeholder="Mobile" id="mobile" name="mobile" type="text"
+						<input placeholder="Mobile" id="mobileNo" name="mobileNo" type="text"
 							class="validate">
 					</div>
 					<div class="input-field">
 						<input placeholder="Address" id="address" name="address"
 							type="text" class="validate">
+					</div>
+					<div class="input-field">
+						<input placeholder="DateOfBirth" id="dateOfBirth" name="dateOfBirth" type="date"
+							class="validate">
 					</div>
 						<label for="course">Choose your Course:</label> 
 						<select name="course"
@@ -56,7 +60,7 @@
 					
 
 					<div class="text-right mt-4">
-						<button type="submit"
+						<button id="reg" type="submit"
 							class="waves-effect btn-large btn-large-white px-4 black-text">REGISTER</button>
 						<br> <a href="Student_login.html">Already Have account?</a>
 
@@ -66,12 +70,8 @@
 			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 tm-register-col-r">
 				<header class="mb-5">
 					<h3 class="mt-0 text-white">REGISTER Yourself</h3>
-					<p class="grey-text">Aenean tincidunt, enim nec blandit
-						lobortis, ante enim ultrices eros, et laoreet augue libero id
-						nunc. Proin semper feugiat ultrices.</p>
-					<p class="grey-text">Aenean a efficitur magna, sed dignissim
-						odio. Praesent pretium lectus ac nunc ultrices, ac volutpat orci
-						viverra.</p>
+					<p class="grey-text">Student Registration Form.</p>
+					<p class="grey-text">Please Fill the form for proceed further.</p>
 				</header>
 
 			</div>
@@ -84,13 +84,45 @@
 		</footer>
 	</div>
 
-	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   
+    <script src="js/materialize.min.js"></script>
+   <script>
 		$(document).ready(function() {
 			$('select').formSelect();
 		});
 	</script>
+	
+	 <script type="text/javascript">
+
+		$(document).delegate('#reg', 'click', function(event) {
+				event.preventDefault();
+				
+				var studentName = $('#name').val();
+				var email = $('#email').val();
+				var password = $('#password').val();
+				var mobileNo = $('#mobileNo').val();
+				var address = $('#address').val();
+				var dateOfBirth = $('#dateOfBirth').val();
+				
+				$.ajax({
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					url: "http://localhost:8080/api/student/registration",
+					data: JSON.stringify({'studentName': name,'email':email,'password':password,'address':address,'mobileNo':mobileNo,'dateOfBirth':dateOfBirth}),
+					cache: false,
+					success: function(result) {
+						window.alert("Registered Successfully");
+					},
+					error: function(err) {
+							window.alert("Not Registered");
+					}
+				});
+			});
+	
+	</script>
+	
+	
 </body>
 
 </html>

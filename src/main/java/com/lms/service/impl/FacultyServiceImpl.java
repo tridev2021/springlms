@@ -63,7 +63,7 @@ public class FacultyServiceImpl implements FacultyService {
 		return facultyRepo.findAll();
 	}
 	
-	@Override
+	@Override 
 	public List<Faculty> getFacultyById(Long id) {
 		
 		return facultyRepo.getFacultybyId(id);
@@ -103,7 +103,6 @@ public class FacultyServiceImpl implements FacultyService {
 		f.setAddress(faculty.getAddress());
 		
 		String pass=faculty.getPassword();
-		
 		
 		f.setPassword(hash(pass));
 		
@@ -145,11 +144,4 @@ public class FacultyServiceImpl implements FacultyService {
 		String del="Data deleted Successfully";
 		return ResponseEntity.ok(del);
 	}
-
-	
-
-	
-
-
-
 }

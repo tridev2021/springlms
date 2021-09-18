@@ -14,7 +14,7 @@ public class CourseServiceImpl implements CourseService {
 
 	@Autowired
 	private CourseRepo courseRepo;
-	
+
 
 	@Override
 	public void deleteCourse(Long ID) {

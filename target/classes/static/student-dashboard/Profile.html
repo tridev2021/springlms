@@ -14,11 +14,11 @@
 		<a href="#" class="icon-a"><i class="fa fa-user icons"></i>
 			&nbsp;&nbsp;Profile</a>
 		 <a href="#" class="icon-a"><i
-			class="fa fa-users icons"></i> &nbsp;&nbsp;Discussion chat </a> <a href="#"
+			class="fa fa-users icons"></i> &nbsp;&nbsp;My progress Report </a> <a href="#"
 			class="icon-a"><i class="fa fa-list icons"></i>
-			&nbsp;&nbsp;Enrolled Students</a> <a href="#" class="icon-a"><i
-			class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;View Courses</a> <a href="#"
-			class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Upload Assessment</a>  <a href="#" onClick="logout()" class="icon-a"><i
+			&nbsp;&nbsp;Assessments</a> <a href="#" class="icon-a"><i
+			class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;My Courses</a> <a href="#"
+			class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Help & Support</a>  <a href="#" onClick="logout()" class="icon-a"><i
 			class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Sign Out</a>
 	</div>
 	<div id="main">
@@ -43,9 +43,7 @@
 
 		<div class="clearfix"></div>
 		<br />
-
-		
-		
+	
 		<div class="clearfix"></div>
 		<br />
 		<br />
@@ -53,16 +51,16 @@
 			<div class="box-8">
 				<div class="content-box">
 					<p>
-						My Profile <span>Date of Joining:-01/03/2020</span>
+						My Profile <span>0</span>
 					</p>
 					<br />
 					<div align="center">
 					<form >
 					<div class="input-field">
-                        <input disabled placeholder="Faculty Id" id="id" name="faculty_id" type="number" class="validate">
+                        <input disabled placeholder="Student Id" id="id" name="student_id" type="number" class="validate">
                     </div><br/>
 					 <div class="input-field">
-                        <input placeholder="Faculty Name" id="name" name="faculty_name" type="text" class="validate">
+                        <input placeholder="Student Name" id="name" name="student_name" type="text" class="validate">
                     </div><br/>
                     <div class="input-field">
                         <input placeholder="Email" id="email" name="email" type="text" class="validate">
@@ -82,8 +80,7 @@
 				</div>
 			</div>
 		</div>
-
-		
+	
 		<div class="clearfix"></div>
 	</div>
 
@@ -129,8 +126,8 @@ function submitDetails(){
 	$.ajax({
 		type: "PATCH",
 		contentType: "application/json; charset=utf-8",
-		url: "http://localhost:8080/api/Student/updated/"+document.getElementById('id').value,
-		data: JSON.stringify({'studentName': document.getElementById('name').value,'email':document.getElementById('email').value,'address':document.getElementById('address').value,'mobile':document.getElementById('mobile').value,'dateOfBirth':document.getElementById('dateOfBirth').value}),
+		url: "http://localhost:8080/api/student/updated/"+document.getElementById('id').value,
+		data: JSON.stringify({'studentName': document.getElementById('name').value,'email':document.getElementById('email').value,'address':document.getElementById('address').value,'mobileNo':document.getElementById('mobileNo').value,'dateOfBirth':document.getElementById('dateOfBirth').value}),
 		cache: false,
 		success: function(result) {
 			window.alert("Details are updated !");
@@ -145,21 +142,24 @@ function submitDetails(){
 	$.ajax({
 		type: "GET",
 		contentType: "application/json; charset=utf-8",
-		url: "http://localhost:8080/api/faculty/getByEmail/"+sessionStorage.getItem('email'),
+		url: "http://localhost:8080/api/student/getByEmail/"+sessionStorage.getItem('email'),
 		cache: false,
 		success: function(result) {
+		
 			document.getElementById('id').value=result[0].fid
 			document.getElementById('name').value=result[0].facultyName
 			document.getElementById('email').value=result[0].email
 			document.getElementById('mobile').value=result[0].mobile
 			document.getElementById('address').value=result[0].address
-		    document.getElementByID('dateOfBirth').value=result[0].dateOfBirth
+		    documnet.getElementById('dateOfBirth').value=result[0].dateOfBirth
 		},
 		error: function(err) {
 				window.alert("Details are not saved !");
 		}
 	});
+	
 </script>
+
 </body>
 
 </html>
