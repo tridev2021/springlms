@@ -1,6 +1,6 @@
 package com.lms.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +27,7 @@ public class Student {
 	private Date dateOfBirth;
 	
 	@Column(name="mobileNo")
-	private double mobileNo;
+	private String mobileNo;
 	
 	@Column(name="email")
 	private String email;
@@ -67,11 +67,11 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public double getMobileNo() {
+	public String getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(double mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 
@@ -91,13 +91,13 @@ public class Student {
 		this.password = password;
 	}
 
-	public Student(Long sid, String name, String address, Date dateOfBirth, double mobileNo, String email,
+	public Student(Long sid, String name, String address, Date date, String mobileNo, String email,
 			String password) {
 		super();
 		this.sid = sid;
 		this.name = name;
 		this.address = address;
-		this.dateOfBirth = dateOfBirth;
+		this.dateOfBirth = date;
 		this.mobileNo = mobileNo;
 		this.email = email;
 		this.password = password;

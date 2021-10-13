@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.model.Student;
-import com.lms.service.impl.StudentServiceImpl;
+import com.lms.impl.StudentServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -27,8 +27,8 @@ public class StudentController {
 	StudentServiceImpl serviceImpl;
 
 	@PostMapping("/registration")
-	public void register(@RequestBody Student student) {
-		serviceImpl.register(student);
+	public Student register(@RequestBody Student student) {
+		return serviceImpl.register(student);
 	}
 	
 	@PostMapping("/login")

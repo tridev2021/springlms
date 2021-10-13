@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.model.Schedule;
-import com.lms.service.impl.ScheduleServiceImpl;
+import com.lms.impl.ScheduleServiceImpl;
 
 @RestController
 @CrossOrigin(origins="*")

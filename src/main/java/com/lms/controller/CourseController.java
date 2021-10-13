@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.model.Course;
-import com.lms.service.impl.CourseServiceImpl;
+import com.lms.impl.CourseServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")

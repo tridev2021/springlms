@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.model.Grade;
-import com.lms.service.impl.GradeServiceImpl;
+import com.lms.impl.GradeServiceImpl;
 
 @RestController
 @CrossOrigin(origins="*")

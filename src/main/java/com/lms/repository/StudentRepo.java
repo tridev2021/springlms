@@ -29,4 +29,12 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
 	@Query(value="Select * from student where date_of_birth=?1",nativeQuery = true)
 	public List<Student> getStudentBydob(Date date_of_birth);
 	
+	@Query(value="Select * from student where sid=?1",nativeQuery = true)
+	public List<Student> getdeleteById(Long id);
+
+//	@Query(value="Select * from student where sid=?1",nativeQuery = true)
+//	public void deleteById(Student student);
+
+	
+	
 }

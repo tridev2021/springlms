@@ -9,7 +9,7 @@ import com.lms.model.Student;
 
 public interface StudentService {
 
-	public void register(Student student);
+	public Student register(Student student);
 
 	public String Login(String email, String password);
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lms.model.StudyBatch;
-import com.lms.service.impl.StudyBatchServiceImpl;
+import com.lms.impl.StudyBatchServiceImpl;
 
 @RestController
 @CrossOrigin(origins="*")

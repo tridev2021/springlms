@@ -26,10 +26,6 @@ public class Course {
 	@Column(name="price")
 	private String price;
 	
-	@ManyToOne()
-	@JoinColumn(name="faculty_id")
-	private Faculty faculty;
-	
 	public Long getCID() {
 		return CID;
 	}
@@ -62,23 +58,14 @@ public class Course {
 		this.price = price;
 	}
 	
-	
-	
-	public Faculty getFaculty() {
-		return faculty;
-	}
 
-	public void setFaculty(Faculty faculty) {
-		this.faculty = faculty;
-	}
-
-	public Course(Long cID, String courseName, String duration, String price, Faculty faculty) {
+	public Course(Long cID, String courseName, String duration, String price) {
 		super();
 		CID = cID;
 		this.courseName = courseName;
 		this.duration = duration;
 		this.price = price;
-		this.faculty = faculty;
+		
 	}
 
 	public Course() {

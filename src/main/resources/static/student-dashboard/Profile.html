@@ -146,10 +146,10 @@ function submitDetails(){
 		cache: false,
 		success: function(result) {
 		
-			document.getElementById('id').value=result[0].fid
-			document.getElementById('name').value=result[0].facultyName
+			document.getElementById('id').value=result[0].sid
+			document.getElementById('name').value=result[0].studentName
 			document.getElementById('email').value=result[0].email
-			document.getElementById('mobile').value=result[0].mobile
+			document.getElementById('mobile').value=result[0].mobileNo
 			document.getElementById('address').value=result[0].address
 		    documnet.getElementById('dateOfBirth').value=result[0].dateOfBirth
 		},
